@@ -89,6 +89,7 @@
 .copy_to_clipboard[data-copied="false"]:hover {
   color: white;
   background: black;
+  border: 1px white solid;
 }
 
 .copy_to_clipboard[data-copied="false"] {
