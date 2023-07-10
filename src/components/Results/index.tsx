@@ -29,6 +29,7 @@ function Results({ setTrack }) {
         <table className={style.results_table}>
           {results.slice(0, 5).map((track, i) => (
             <tr
+              key={i}
               onClick={() => {
                 setTrack(results[i])
                 setResults([])

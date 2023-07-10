@@ -13,21 +13,25 @@ export type Search = {
 }
 
 export const searchSong = async (query: string, token: string) => {
-  const {
-    data: {
-      tracks: { items },
-    },
-  } = await axios.get<{ tracks: Search }>(
-    `https://api.spotify.com/v1/search?${qs.stringify({
-      q: query,
-      type: "track",
-    })}`,
-    {
-      headers: {
-        Authorization: "Bearer " + token,
-        "Content-Type": "application/x-www-form-urlencoded",
+  try {
+    const {
+      data: {
+        tracks: { items },
       },
-    }
-  )
-  return items
+    } = await axios.get<{ tracks: Search }>(
+      `https://api.spotify.com/v1/search?${qs.stringify({
+        q: query,
+        type: "track",
+      })}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+    return items
+  } catch (e) {
+    window.alert("Failed to Search Tracks")
+  }
 }
