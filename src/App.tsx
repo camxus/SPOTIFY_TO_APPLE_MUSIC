@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom"
+import Home from "@pages/Home"
+import { getAuthToken } from "./utils/auth"
+import { useEffect } from "react"
+import { useCookies } from "react-cookie"
 
 function App() {
+  const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
+
+  useEffect(() => {
+    getAuthToken().then((token) => {
+      setCookie("bearer", token)
+    })
+  }, [setCookie])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
+  )
 }
 
-export default App;
+export default App
