@@ -75,6 +75,7 @@
   width: 15rem;
   color: black;
   background: white;
+  border: 1px transparent solid
 }
 
 .buttons .spotify:hover {
@@ -89,7 +90,7 @@
 .copy_to_clipboard[data-copied="false"]:hover {
   color: white;
   background: black;
-  border: 1px white solid;
+  border-color: white;
 }
 
 .copy_to_clipboard[data-copied="false"] {
