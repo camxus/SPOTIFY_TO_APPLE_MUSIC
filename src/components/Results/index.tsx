@@ -25,34 +25,33 @@ function Results({ setTrack }) {
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search Song..."
       />
-      {
+      {results.length > 0 && !!query && (
         <table className={style.results_table}>
-          {results.length > 0 &&
-            results.slice(0, 5).map((track, i) => (
-              <tr
-                onClick={() => {
-                  setTrack(results[i])
-                  setResults([])
-                  setQuery("")
-                }}
-              >
-                <td>
-                  <img
-                    alt={track.name + "Album Cover"}
-                    src={track.album.images[0].url}
-                  />
-                </td>
-                <td className={style.track_details}>
-                  <p className={style.track_name}>{track.name}</p>
-                  <p className={style.album_name}>{track.album.name}</p>
-                </td>
-                <td>
-                  <p>{track.artists[0].name}</p>
-                </td>
-              </tr>
-            ))}
+          {results.slice(0, 5).map((track, i) => (
+            <tr
+              onClick={() => {
+                setTrack(results[i])
+                setResults([])
+                setQuery("")
+              }}
+            >
+              <td>
+                <img
+                  alt={track.name + "Album Cover"}
+                  src={track.album.images[0].url}
+                />
+              </td>
+              <td className={style.track_details}>
+                <p className={style.track_name}>{track.name}</p>
+                <p className={style.album_name}>{track.album.name}</p>
+              </td>
+              <td>
+                <p>{track.artists[0].name}</p>
+              </td>
+            </tr>
+          ))}
         </table>
-      }
+      )}
     </div>
   )
 }

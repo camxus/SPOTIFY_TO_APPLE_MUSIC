@@ -29,6 +29,10 @@
   border-collapse: collapse;
   left: 50%;
   transform: translateX(-50%);
+  background: var(--bg);
+  animation: fadeIn 0.3s ease-in-out forwards;
+  opacity: 0;
+  border-bottom: 1px solid lightgray;
 }
 
 .results_table tr {
@@ -61,4 +65,13 @@
 .track_details .album_name {
   font-size: 0.5rem;
   color: grey;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

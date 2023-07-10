@@ -4,6 +4,7 @@
   width: 100vw;
   background-color: black;
   transition: var(--transition);
+  overflow: scroll;
 }
 
 .apple_result_modal[data-open="true"] {
@@ -17,11 +18,12 @@
 }
 
 .close_button {
-  position: absolute;
+  position: fixed;
   top: 2rem;
   right: 2rem;
   color: white;
   cursor: pointer;
+  z-index: 1;
 }
 
 .apple_result_container {
@@ -29,7 +31,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   padding: 0 30vw;
 }
 

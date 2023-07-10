@@ -5,12 +5,13 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: #e8e8e8;
+  background: var(--bg);
+  overflow: hidden;
 }
 
 .title {
   margin: 3rem;
-  margin-top: 15rem;
+  margin-top: clamp(5rem, 17vh, 10rem);
 }
 
 .title > h1 {
