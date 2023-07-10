@@ -1,6 +1,7 @@
 .apple_result_modal {
   position: fixed;
   height: 100vh;
+  height: -webkit-fill-available;
   width: 100vw;
   background-color: black;
   transition: var(--transition);
