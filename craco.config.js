@@ -23,7 +23,7 @@ module.exports = {
       "@hooks": path.resolve(__dirname, "src/utility/hooks"),
       "@api": path.resolve(__dirname, "src/sexs/api"),
       "@components": path.resolve(__dirname, "src/components"),
-      "@css": path.resolve(__dirname, "src/assets/css"),
+      "@assets": path.resolve(__dirname, "src/assets"),
       "@pages": path.resolve(__dirname, "src/pages"),
     },
   },

@@ -5,6 +5,7 @@ import { Track } from "@src/utils/spotify/types"
 import { getTrackFromApple } from "@src/utils/apple"
 import { AppleTrack } from "@src/utils/apple/types"
 import AppleResult from "@src/components/AppleResult"
+import { ReactComponent as Shortcuts } from "@assets/icons/shortcuts.svg"
 
 function Home() {
   const [spotifyResult, setSpotifyResult] = useState<Track>(null)
@@ -31,6 +32,15 @@ function Home() {
           spotify: spotifyResult,
         }}
       />
+      <a
+        href="https://www.icloud.com/shortcuts/f51d38f4c6594fe8be747e1dc15ef468"
+        className={style.shortcuts}
+      >
+        <button>
+          <Shortcuts />
+          Try Apple Shortcut
+        </button>
+      </a>
     </div>
   )
 }
