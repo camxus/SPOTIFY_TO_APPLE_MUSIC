@@ -53,10 +53,14 @@ function AppleResult({
               >
                 Copy Link to Clipboard
               </button>
-              <a href={spotify.href}>
+              <a
+                href={spotify.external_urls.spotify}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <button className={style.spotify}>Play on Spotify</button>
               </a>
-              <a href={track.trackViewUrl}>
+              <a href={track.trackViewUrl} target="_blank" rel="noreferrer">
                 <button className={style.apple_music}>
                   Play on AppleMusic
                 </button>
