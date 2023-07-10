@@ -86,6 +86,10 @@
   color: white;
   background: #fa586a;
 }
+.copy_to_clipboard[data-copied="false"]:hover {
+  color: white;
+  background: black;
+}
 
 .copy_to_clipboard[data-copied="false"] {
   color: black;
@@ -93,7 +97,7 @@
 }
 .copy_to_clipboard[data-copied="true"] {
   color: white;
-  background: limegreen;
+  background: #fa586a;
 }
 .copy_to_clipboard[data-copied="error"] {
   color: black;

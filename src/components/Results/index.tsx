@@ -24,6 +24,7 @@ function Results({ setTrack }) {
         className={style.search_field}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search Song..."
+        autoFocus
       />
       {results.length > 0 && !!query && (
         <table className={style.results_table}>

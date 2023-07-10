@@ -51,7 +51,8 @@ function AppleResult({
                 }}
                 data-copied={copied}
               >
-                Copy Link to Clipboard
+                {copied === true ? "Copied" : "Copy"} AppleMusic Link to
+                Clipboard
               </button>
               <a
                 href={spotify.external_urls.spotify}
