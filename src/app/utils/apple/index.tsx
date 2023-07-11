@@ -17,6 +17,11 @@ export const getTrackFromApple = async (
       throw new Error("NO_TRACKS_FOUND")
     }
     return (
+      results.find(
+        (track) =>
+          track.trackName.includes(title) &&
+          track.artistName.includes(artists[0])
+      ) ??
       results.find((track) => track.trackName === title) ??
       results.find((track) => track.trackName.includes(title)) ??
       results[0]
