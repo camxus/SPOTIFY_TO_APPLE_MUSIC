@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  height: -webkit-fill-available;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.title {
+  margin: 3rem;
+  margin-top: clamp(5rem, 17vh, 10rem);
+}
+
+.title > h1 {
+  font-size: (30px, 4vw, 60px);
+}
+
+.shortcuts {
+  margin: 3rem;
+  text-decoration: none;
+}
+
+.shortcuts button {
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: 12rem;
+  color: black;
+  justify-content: space-around;
+  transition: var(--transition);
+  background-color: transparent;
+}
+
+.shortcuts button:hover {
+  color: white;
+  fill: white;
+  background-color: black;
+}
