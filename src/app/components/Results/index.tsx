@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import { useCookies } from "react-cookie"
 import { useDebounce } from "usehooks-ts"
 import style from "./Results.module.css"
 import { searchSong } from "@/app/utils/spotify"
@@ -17,7 +16,6 @@ function Results({
   const [token, setToken] = useState("")
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<Track[]>([])
-  const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
   const debouncedValue = useDebounce<string>(query, 500)
 
   useEffect(() => {
@@ -27,6 +25,7 @@ function Results({
   }, [])
 
   useEffect(() => {
+    console.log(token)
     if (debouncedValue && token)
       searchSong(debouncedValue, token).then((tracks) =>
         setResults(tracks)
