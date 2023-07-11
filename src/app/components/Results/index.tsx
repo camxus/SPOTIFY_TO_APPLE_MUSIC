@@ -19,7 +19,7 @@ function Results({
   const debouncedValue = useDebounce<string>(query, 500)
 
   useEffect(() => {
-    if (debouncedValue)
+    if (debouncedValue && cookies.bearer)
       searchSong(debouncedValue, cookies.bearer).then((tracks) =>
         setResults(tracks)
       )
