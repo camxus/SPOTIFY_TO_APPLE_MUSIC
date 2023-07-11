@@ -35,6 +35,11 @@
   border-bottom: 1px solid lightgray;
 }
 
+.results_table button {
+  background: transparent;
+  border: transparent;
+}
+
 .results_table tr {
   cursor: pointer;
   transition: var(--transition);
@@ -42,6 +47,8 @@
 
 .results_table td {
   padding: 1rem 0.5rem;
+  text-align: start;
+  vertical-align: middle;
 }
 
 .results_table tr:hover {

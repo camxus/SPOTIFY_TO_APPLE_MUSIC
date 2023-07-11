@@ -22,13 +22,15 @@ function AppleResult({
   return (
     <>
       {track && (
-        <X
+        <button
           className={style.close_button}
           onClick={() => {
             setCopied(false)
             setTrack(undefined)
           }}
-        />
+        >
+          <X />
+        </button>
       )}
       <div data-open={!!track} className={style.apple_result_modal}>
         {track && (
