@@ -24,7 +24,7 @@
 }
 
 .results_table {
-  top: calc(var(--input-height) + 2.5rem);
+  top: calc(var(--input-height) + 1.5rem);
   position: absolute;
   border-collapse: collapse;
   left: 50%;
@@ -38,15 +38,15 @@
 .results_table button {
   background: transparent;
   border: transparent;
+  cursor: pointer;
 }
 
 .results_table tr {
-  cursor: pointer;
   transition: var(--transition);
 }
 
 .results_table td {
-  padding: 1rem 0.5rem;
+  padding: clamp(0rem, 0.5vh, 2rem) 0.5rem;
   text-align: start;
   vertical-align: middle;
 }

@@ -6,6 +6,8 @@ import { X } from "react-feather"
 import { Track } from "@/app/utils/spotify/types"
 import { AppleTrack } from "@/app/utils/apple/types"
 import Image from "next/image"
+import classnames from "classnames"
+import BigImageBackDrop from "../BigImageBackDrop"
 
 type CopiedState = boolean | "error"
 
@@ -35,6 +37,7 @@ function AppleResult({
       <div data-open={!!track} className={style.apple_result_modal}>
         {track && (
           <div className={style.apple_result_container}>
+            <BigImageBackDrop track={spotify} />
             <div className={style.album_image}>
               <Image
                 layout="fill"
@@ -46,8 +49,9 @@ function AppleResult({
             <p className={style.track_name}>{track.trackName}</p>
             <p className={style.artist_name}>{track.artistName}</p>
             <div className={style.buttons}>
-              <button
-                className={style.copy_to_clipboard}
+              <a
+                tabIndex={0}
+                className={classnames(style.button, style.copy_to_clipboard)}
                 onClick={() => {
                   try {
                     setCopied(false)
@@ -61,18 +65,24 @@ function AppleResult({
               >
                 {copied === true ? "Copied" : "Copy"} AppleMusic Link to
                 Clipboard
-              </button>
+              </a>
               <a
+                tabIndex={0}
+                className={classnames(style.button, style.spotify)}
                 href={spotify?.external_urls.spotify}
                 target="_blank"
                 rel="noreferrer"
               >
-                <button className={style.spotify}>Play on Spotify</button>
+                Play on Spotify
               </a>
-              <a href={track.trackViewUrl} target="_blank" rel="noreferrer">
-                <button className={style.apple_music}>
-                  Play on AppleMusic
-                </button>
+              <a
+                tabIndex={0}
+                href={track.trackViewUrl}
+                className={classnames(style.button, style.apple_music)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                Play on AppleMusic
               </a>
             </div>
           </div>
