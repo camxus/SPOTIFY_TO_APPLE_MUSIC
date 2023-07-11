@@ -38,7 +38,7 @@
 }
 
 .shortcuts button:hover {
-  color: white;
-  fill: white;
+  color: var(--bg);
+  fill: var(--bg);
   background-color: black;
 }

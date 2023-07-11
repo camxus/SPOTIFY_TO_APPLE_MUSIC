@@ -98,7 +98,7 @@
 }
 .copy_to_clipboard[data-copied="false"]:hover {
   color: white;
-  background: black;
+  background: transparent;
   border-color: white;
 }
 
