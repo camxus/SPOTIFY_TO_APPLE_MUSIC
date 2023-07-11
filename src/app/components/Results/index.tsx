@@ -7,16 +7,23 @@ import style from "./Results.module.css"
 import { searchSong } from "@/app/utils/spotify"
 import { Track } from "@/app/utils/spotify/types"
 import Image from "next/image"
+import { getAuthToken } from "@/app/utils/auth"
 
 function Results({
   setTrack,
+  token,
 }: {
   setTrack: React.Dispatch<React.SetStateAction<Track | undefined>>
+  token?: string
 }) {
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<Track[]>([])
   const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
   const debouncedValue = useDebounce<string>(query, 500)
+
+  useEffect(() => {
+    setCookie("bearer", token)
+  }, [setCookie, token])
 
   useEffect(() => {
     if (debouncedValue)
@@ -71,3 +78,8 @@ function Results({
 }
 
 export default Results
+
+export const getInitialProps = async () => {
+  const token = await getAuthToken()
+  return { props: { token } }
+}
