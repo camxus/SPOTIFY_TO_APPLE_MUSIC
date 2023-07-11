@@ -22,9 +22,14 @@
   position: fixed;
   top: 2rem;
   right: 2rem;
-  color: white;
   cursor: pointer;
+  background-color: transparent;
+  border: 0;
   z-index: 1;
+}
+
+.close_button > svg {
+  color: white;
 }
 
 .apple_result_container {

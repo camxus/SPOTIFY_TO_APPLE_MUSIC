@@ -33,9 +33,11 @@ function Results({
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search Song..."
         autoFocus
+        aria-haspopup="true"
+        tabIndex={0}
       />
       {results.length > 0 && !!query && (
-        <table className={style.results_table}>
+        <table className={style.results_table} aria-expanded="true">
           {results.slice(0, 5).map((track, i) => (
             <tr
               key={i}
@@ -45,23 +47,25 @@ function Results({
                 setQuery("")
               }}
             >
-              <td>
-                <div className={style.results_image}>
-                  <Image
-                    fill
-                    objectFit="contain"
-                    alt={track.name + "Album Cover"}
-                    src={track.album.images[0].url}
-                  />
-                </div>
-              </td>
-              <td className={style.track_details}>
-                <p className={style.track_name}>{track.name}</p>
-                <p className={style.album_name}>{track.album.name}</p>
-              </td>
-              <td>
-                <p>{track.artists[0].name}</p>
-              </td>
+              <button tabIndex={0}>
+                <td>
+                  <div className={style.results_image}>
+                    <Image
+                      fill
+                      objectFit="contain"
+                      alt={track.name + "Album Cover"}
+                      src={track.album.images[0].url}
+                    />
+                  </div>
+                </td>
+                <td className={style.track_details}>
+                  <p className={style.track_name}>{track.name}</p>
+                  <p className={style.album_name}>{track.album.name}</p>
+                </td>
+                <td>
+                  <p>{track.artists[0].name}</p>
+                </td>
+              </button>
             </tr>
           ))}
         </table>
