@@ -13,17 +13,24 @@ function Results({
 }: {
   setTrack: React.Dispatch<React.SetStateAction<Track | undefined>>
 }) {
+  const [token, setToken] = useState("")
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<Track[]>([])
   const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
   const debouncedValue = useDebounce<string>(query, 500)
 
   useEffect(() => {
-    if (debouncedValue && cookies.bearer)
-      searchSong(debouncedValue, cookies.bearer).then((tracks) =>
+    getAuthToken().then((token) => {
+      setToken(token)
+    })
+  }, [])
+
+  useEffect(() => {
+    if (debouncedValue && token)
+      searchSong(debouncedValue, token).then((tracks) =>
         setResults(tracks)
       )
-  }, [debouncedValue, cookies])
+  }, [debouncedValue, token])
 
   return (
     <div className={style.search_container}>
