@@ -16,7 +16,16 @@ export const getTrackFromApple = async (
     if (results.length === 0) {
       throw new Error("NO_TRACKS_FOUND")
     }
-    return results
+    return (
+      results.find(
+        (track) =>
+          track.trackName.includes(title) &&
+          track.artistName.includes(artists[0])
+      ) ??
+      results.find((track) => track.trackName === title) ??
+      results.find((track) => track.trackName.includes(title)) ??
+      results[0]
+    )
   } catch (err) {
     window.alert("Failed to find in Apple Music")
   }

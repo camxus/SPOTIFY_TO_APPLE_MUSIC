@@ -17,7 +17,7 @@ function Home() {
   useEffect(() => {
     if (spotifyResult)
       getTrackFromApple(spotifyResult.name, spotifyResult.artists).then((res) =>
-        setAppleResult(res?.[0])
+        setAppleResult(res)
       )
   }, [spotifyResult])
 
