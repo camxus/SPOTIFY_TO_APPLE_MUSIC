@@ -6,6 +6,7 @@ import { useDebounce } from "usehooks-ts"
 import style from "./Results.module.css"
 import { searchSong } from "@/app/utils/spotify"
 import { Track } from "@/app/utils/spotify/types"
+import { getAuthToken } from "@/app/utils/auth"
 import Image from "next/image"
 
 function Results({
