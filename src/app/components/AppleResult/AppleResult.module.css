@@ -108,7 +108,7 @@
 }
 .copy_to_clipboard[data-copied="true"] {
   color: limegreen;
-  background: black;
+  background: transparent;
   border-color: limegreen;
 }
 .copy_to_clipboard[data-copied="error"] {

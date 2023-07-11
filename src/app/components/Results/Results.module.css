@@ -39,6 +39,7 @@
   background: transparent;
   border: transparent;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .results_table tr {
