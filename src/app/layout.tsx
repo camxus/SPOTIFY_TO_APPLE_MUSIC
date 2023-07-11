@@ -1,7 +1,7 @@
 "use client"
 
 import "./globals.css"
-import type { Metadata } from "next"
+import type { GetStaticProps } from "next"
 import { Inter } from "next/font/google"
 import { useEffect } from "react"
 import { useCookies } from "react-cookie"
@@ -16,16 +16,16 @@ const inter = Inter({ subsets: ["latin"] })
 
 export default function RootLayout({
   children,
+  token,
 }: {
   children: React.ReactNode
+  token: string
 }) {
   const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
 
   useEffect(() => {
-    getAuthToken().then((token) => {
-      setCookie("bearer", token)
-    })
-  }, [setCookie])
+    setCookie("bearer", token)
+  }, [setCookie, token])
 
   return (
     <html lang="en">
@@ -33,3 +33,9 @@ export default function RootLayout({
     </html>
   )
 }
+
+export const getInitialProps = async () => {
+  const token = await getAuthToken()
+  return { props: { token } }
+}
+ 
