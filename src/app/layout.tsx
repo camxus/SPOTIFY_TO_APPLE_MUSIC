@@ -22,11 +22,11 @@ export default function RootLayout({
   const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
 
   useEffect(() => {
-    cookies.bearer = ""
+    removeCookie("bearer")
     getAuthToken().then((token) => {
       setCookie("bearer", token)
     })
-  }, [setCookie])
+  }, [])
 
   return (
     <html lang="en">

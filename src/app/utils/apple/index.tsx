@@ -1,7 +1,6 @@
 import axios from "axios"
 import { Artist } from "../spotify/types"
 import { AppleTrack } from "./types"
-import qs from "qs"
 
 export const getTrackFromApple = async (
   title: string,
