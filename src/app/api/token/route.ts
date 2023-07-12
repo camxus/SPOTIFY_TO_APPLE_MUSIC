@@ -20,7 +20,7 @@ export async function GET() {
         },
       }
     )
-    if (!process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID || !process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) throw new Error("env undefined"))
+    if (!process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID || !process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET) throw new Error("env undefined")
     return NextResponse.json({ access_token }, { status: 200 })
   } catch (e: any) {
     return NextResponse.json(e.message, { status: 500 })
