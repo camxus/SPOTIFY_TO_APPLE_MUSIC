@@ -26,7 +26,7 @@ export const searchSong = async (query: string, token: string) => {
       {
         headers: {
           Authorization: `Bearer ${token}`,
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/x-www-form-urlencoded"
         },
       }
     )
