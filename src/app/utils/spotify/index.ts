@@ -15,7 +15,7 @@ export type Search = {
 export const searchSong = async (query: string, token: string) => {
 console.log("token", token)
   try {
-    if token {const {
+    if (token) {const {
       data: {
         tracks: { items },
       },
