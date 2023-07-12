@@ -34,7 +34,7 @@ console.log("token", token)
 return items
 } else { throw new Error("NO_TOKEN")}
     
-  } catch (e) {
+  } catch (e: Error) {
     console.log(e.message)
     return []
   }
