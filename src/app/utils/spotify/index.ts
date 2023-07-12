@@ -13,8 +13,9 @@ export type Search = {
 }
 
 export const searchSong = async (query: string, token: string) => {
+console.log("token", token)
   try {
-    const {
+    if token {const {
       data: {
         tracks: { items },
       },
@@ -30,9 +31,11 @@ export const searchSong = async (query: string, token: string) => {
         },
       }
     )
-    return items
+return items
+} else { throw new Error("NO_TOKEN")}
+    
   } catch (e) {
-    window.alert("Failed to Search Tracks")
+    console.log(e.message)
     return []
   }
 }
