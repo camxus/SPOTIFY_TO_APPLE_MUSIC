@@ -22,6 +22,7 @@ export default function RootLayout({
   const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
 
   useEffect(() => {
+    cookies.bearer = ""
     getAuthToken().then((token) => {
       setCookie("bearer", token)
     })
