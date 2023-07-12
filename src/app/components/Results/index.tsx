@@ -5,32 +5,25 @@ import { useDebounce } from "usehooks-ts"
 import style from "./Results.module.css"
 import { searchSong } from "@/app/utils/spotify"
 import { Track } from "@/app/utils/spotify/types"
-import { getAuthToken } from "@/app/utils/auth"
 import Image from "next/image"
+import { useCookies } from "react-cookie"
 
 function Results({
   setTrack,
 }: {
   setTrack: React.Dispatch<React.SetStateAction<Track | undefined>>
 }) {
-  const [token, setToken] = useState("")
   const [query, setQuery] = useState("")
   const [results, setResults] = useState<Track[]>([])
+  const [cookies, setCookie, removeCookie] = useCookies(["bearer"])
   const debouncedValue = useDebounce<string>(query, 500)
 
   useEffect(() => {
-    getAuthToken().then((token) => {
-      setToken(token)
-    })
-  }, [])
-
-  useEffect(() => {
-    console.log(token)
-    if (debouncedValue && token)
-      searchSong(debouncedValue, token).then((tracks) =>
+    if (debouncedValue && cookies.bearer)
+      searchSong(debouncedValue, cookies.bearer).then((tracks) =>
         setResults(tracks)
       )
-  }, [debouncedValue, token])
+  }, [debouncedValue, cookies])
 
   return (
     <div className={style.search_container}>
