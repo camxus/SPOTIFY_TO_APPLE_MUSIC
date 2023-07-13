@@ -22,7 +22,10 @@ export async function GET() {
       !process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
     )
       throw new Error("env undefined")
-    return NextResponse.json({ access_token }, { status: 200 })
+    return NextResponse.json(
+      { access_token, timestamp: Date.now() },
+      { status: 200 }
+    )
   } catch (e: any) {
     return NextResponse.json(e.message, { status: 500 })
   }
