@@ -7,6 +7,8 @@ import { useEffect } from "react"
 import { useCookies } from "react-cookie"
 import { getAuthToken } from "./utils/auth"
 
+export const fetchCache = "force-no-store"
+
 const inter = Inter({ subsets: ["latin"] })
 
 // export const metadata: Metadata = {

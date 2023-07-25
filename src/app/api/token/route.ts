@@ -2,6 +2,8 @@ import { encode } from "base-64"
 import { NextResponse } from "next/server"
 import qs from "qs"
 
+export const fetchCache = "force-no-store"
+
 export async function GET() {
   try {
     const { access_token } = await (
@@ -14,7 +16,7 @@ export async function GET() {
           "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
         body: qs.stringify({ grant_type: "client_credentials" }),
-        next: { revalidate: 0 },
+        cache: "no-store",
       })
     ).json()
     if (
