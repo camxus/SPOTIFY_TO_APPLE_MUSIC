@@ -25,7 +25,6 @@ function Results({
   }, [])
 
   useEffect(() => {
-    console.log(token)
     if (debouncedValue && token)
       searchSong(debouncedValue, token).then((tracks) =>
         setResults(tracks)
@@ -61,7 +60,7 @@ function Results({
                       fill
                       objectFit="contain"
                       alt={track.name + "Album Cover"}
-                      src={track.album.images[0].url}
+                      src={track.album.images[0]?.url}
                     />
                   </div>
                 </td>
